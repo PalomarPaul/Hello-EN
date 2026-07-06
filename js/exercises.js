@@ -456,7 +456,11 @@ const Exercises = (() => {
       'diagnostico': diagnosticQuestions,
       'fundamentos': fundamentosQuestions,
       'gramatica': gramaticaQuestions,
-      'vocabulario': vocabularioQuestions
+      'vocabulario': vocabularioQuestions,
+      'speaking': speakingQuestions,
+      'reading': readingQuestions,
+      'listening': listeningQuestions,
+      'writing': writingQuestions
     };
     return map[moduleId] || [];
   }
@@ -729,11 +733,313 @@ const Exercises = (() => {
     return qs;
   })();
 
+  const speakingQuestions = (() => {
+    const qs = [];
+    function mc(q, opts, ans, exp) { qs.push({ type: 'multiple-choice', question: q, options: opts, answer: ans, explanation: exp }); }
+    function fb(q, ans, exp) { qs.push({ type: 'fill-blank', question: q, answer: ans, explanation: exp }); }
+    function tf(q, ans, exp) { qs.push({ type: 'true-false', question: q, answer: ans, explanation: exp }); }
+
+    // Fórmula de respuesta B1
+    mc('¿Cuál es el primer paso de la fórmula de respuesta B1?', ['Respuesta directa', 'Razón', 'Ejemplo personal', 'Cierre'], 0, 'Paso 1: respuesta directa a la pregunta.');
+    mc('¿Qué viene después de dar la respuesta directa?', ['Un saludo', 'La razón', 'El cierre', 'Una pregunta'], 1, 'Paso 2: dar la razón de tu respuesta.');
+    mc('¿Qué ayuda a hacer tu respuesta más natural?', ['Un ejemplo o detalle personal', 'Una palabra difícil', 'Silencio'], 0, 'Paso 3: incluir un ejemplo o detalle personal.');
+    mc('¿Cómo se cierra una respuesta B1?', ['Con un saludo', 'Con un cierre sencillo', 'Con una pregunta'], 1, 'Paso 4: cierre sencillo como "That is why...".');
+    mc('¿Qué estructura sigue una buena respuesta B1?', ['Respuesta + razón + ejemplo + cierre', 'Solo respuesta', 'Pregunta + respuesta'], 0, 'La fórmula de 4 pasos da claridad y naturalidad.');
+
+    // Frases para ganar tiempo
+    mc('¿Qué frase puedes usar para pensar antes de responder?', ['Let me think for a second', 'I am finished', 'Goodbye'], 0, '"Let me think for a second" te da tiempo para organizar tu respuesta.');
+    mc('Si no entiendes la pregunta, ¿qué puedes decir?', ['Could you repeat the question?', 'I do not know', 'Next question'], 0, 'Pedir repetición es normal y aceptable en un examen.');
+    mc('¿Qué frase ayuda a introducir una opinión?', ['In my opinion', 'I am', 'Yesterday'], 0, '"In my opinion" introduce tu punto de vista.');
+    mc('¿Cómo puedes agregar otra razón a tu respuesta?', ['Another reason is...', 'I am tired', 'No'], 0, '"Another reason is..." amplía tu respuesta.');
+    mc('¿Qué frase usas para dar un ejemplo?', ['For example', 'But', 'Because'], 0, '"For example" introduce un ejemplo concreto.');
+
+    // Preguntas típicas
+    mc('Tell me about yourself: ¿con qué empiezas?', ['My name is...', 'I like pizza', 'Yesterday I...'], 0, 'Empieza con tu nombre, origen y lo que haces.');
+    mc('What do you usually do on weekdays? habla de...', ['tu rutina diaria', 'tus vacaciones', 'tus planes lejanos'], 0, 'Describe actividades regulares: wake up, study, work, rest.');
+    mc('What did you do last weekend? requiere...', ['pasado simple', 'presente simple', 'futuro'], 0, '"Last weekend" indica pasado, usa Past Simple.');
+    mc('What are you going to do next year? habla de...', ['planes futuros', 'rutina diaria', 'experiencias pasadas'], 0, 'Usa "going to" o "will" para hablar del futuro.');
+    mc('Do you prefer studying alone or with others? pide...', ['una opinión con razón', 'solo una palabra', 'una historia larga'], 0, 'Da tu preferencia y explica por qué.');
+    mc('Describe a place you like: debes dar...', ['detalles del lugar y por qué te gusta', 'solo el nombre', 'la dirección'], 0, 'Describe el lugar y da razones personales.');
+    mc('What is difficult about learning English? es una pregunta de...', ['opinión y experiencia personal', 'gramática', 'vocabulario'], 0, 'Habla de tu experiencia y lo que se te dificulta.');
+    mc('What technology do you use every day? contesta con...', ['ejemplos de tecnología y su utilidad', 'solo el nombre de un aparato', 'una definición técnica'], 0, 'Da ejemplos concretos y explica para qué los usas.');
+    mc('What should people do to be healthy? pide...', ['consejos con "should"', 'síntomas médicos', 'diagnósticos'], 0, 'Usa "should" para dar recomendaciones de salud.');
+    mc('Have you ever traveled? usa...', ['presente perfecto', 'pasado simple', 'futuro'], 0, '"Have you ever" requiere presente perfecto para experiencias.');
+
+    fb('Completa la fórmula: "I am studying English ___ I want to improve."', 'because', '"Because" introduce la razón.');
+    fb('Completa: "___ me think for a second."', 'Let', 'Expresión para ganar tiempo.');
+    fb('Completa: "In my ___, practice is important."', 'opinion', '"In my opinion" = en mi opinión.');
+    fb('Completa: "___ example, I use my phone for English."', 'For', '"For example" introduce un ejemplo.');
+    fb('Completa: "Another ___ is that English helps at work."', 'reason', '"Another reason is..." agrega otro punto.');
+    fb('Completa: "That is ___ English is important for me."', 'why', '"That is why..." cierra la respuesta.');
+    fb('Completa: "To be ___ , I find speaking difficult."', 'honest', '"To be honest" introduce una opinión sincera.');
+    fb('Completa la respuesta: "I am ___ Mexico."', 'from', '"I am from" indica origen.');
+    fb('Completa: "I ___ studying English because I want a better job."', 'am', 'Present continuous con "am" para acción actual.');
+    fb('Completa el consejo: "People ___ sleep well and exercise."', 'should', '"Should" para dar recomendaciones.');
+
+    tf('En speaking B1 es aceptable pedir que repitan la pregunta.', true, 'Pedir repetición es normal y muestra control.');
+    tf('La fórmula de respuesta B1 tiene 2 pasos.', false, 'Tiene 4 pasos: respuesta, razón, ejemplo, cierre.');
+    tf('"For example" se usa para dar un detalle personal.', true, 'Correcto, introduce un ejemplo concreto.');
+    tf('Debes memorizar respuestas largas sin cambios.', false, 'Es mejor entender la estructura y adaptarla.');
+    tf('El cierre ayuda a terminar la respuesta con claridad.', true, 'Un cierre como "That is why..." da una sensación de finalización.');
+    tf('En un examen de ubicación puedes usar lenguaje sencillo.', true, 'No necesitas vocabulario complejo; claridad es suficiente.');
+    tf('Debes evitar decir "I don\'t know" en cualquier situación.', false, 'Es mejor que inventar una respuesta incorrecta.');
+
+    // More questions
+    mc('Tell me about yourself: ¿qué información NO debe faltar?', ['Nombre, origen, ocupación e intereses', 'Solo el nombre', 'Tu comida favorita'], 0, 'Una presentación completa incluye nombre, origen y lo que haces.');
+    mc('¿Qué tiempo verbal usas para hablar de tu rutina?', ['Present Simple', 'Past Simple', 'Present Perfect'], 0, 'La rutina diaria se expresa en presente simple.');
+    mc('¿Qué tiempo verbal usas para hablar del fin de semana pasado?', ['Past Simple', 'Present Simple', 'Future'], 0, 'Eventos pasados requieren pasado simple.');
+    mc('¿Qué expresión usas para introducir tu opinión?', ['In my opinion', 'Yesterday', 'For example'], 0, '"In my opinion" introduce tu punto de vista.');
+    mc('Para describir un lugar, ¿qué detalles son útiles?', ['Cómo es, qué puedes hacer allí, por qué te gusta', 'Solo el nombre', 'La dirección exacta'], 0, 'Describe el lugar con detalles sensoriales y personales.');
+    mc('¿Cómo puedes hacer tu respuesta más natural?', ['Con un ejemplo personal', 'Con silencios largos', 'Hablando muy rápido'], 0, 'Los ejemplos personales hacen tu respuesta única y natural.');
+    mc('Si no entiendes una palabra en la pregunta, ¿qué haces?', ['Pides que repitan o reformulen', 'Te quedas en silencio', 'Cambias de tema'], 0, 'Pedir repetición es normal y aceptable.');
+    mc('¿Qué estructura usas para un monólogo de 60 segundos?', ['Intro + detalles + opinión + cierre', 'Solo opinión', 'Preguntas y respuestas'], 0, 'La estructura de 4 partes organiza tu monólogo.');
+    mc('¿Cuál es un ejemplo de cierre para tu respuesta?', ['That is why English is important for me', 'I am tired', 'Goodbye'], 0, 'El cierre resume por qué tu respuesta es relevante.');
+    mc('Para hablar de planes futuros, ¿qué estructura usas?', ['going to / will', 'Pasado simple', 'Presente perfecto'], 0, 'Planes futuros se expresan con "going to" o "will".');
+
+    fb('Completa: "I am ___ Mexico." (origen)', 'from', '"I am from" + país o ciudad de origen.');
+    fb('Completa: "I am ___ studying English." (actualmente)', 'currently', '"Currently" indica que está sucediendo ahora.');
+    fb('Completa: "My ___ is to reach B1." (meta)', 'goal', '"Goal" = meta u objetivo.');
+    fb('Completa: "___ the most difficult part is speaking." (para mí)', 'For me', '"For me" introduce tu experiencia personal.');
+    fb('Completa: "I ___ with you because..." (estoy de acuerdo)', 'agree', '"I agree" expresa acuerdo con una idea.');
+    fb('Completa: "I ___ from home on weekends." (descanso)', 'rest', '"Rest" = descansar o relajarse.');
+    fb('Completa: "___ I was tired, I studied anyway." (aunque)', 'Although', '"Although" introduce un contraste.');
+
+    mc('¿Qué significa "I would like to visit London"?', ['Me gustaría visitar Londres', 'Visité Londres', 'Odio Londres'], 0, '"I would like to" expresa un deseo o plan.');
+    mc('¿Cómo respondes "What are your hobbies?"', ['I like watching videos and listening to music', 'I am a student', 'I live in Merida'], 0, 'Los hobbies se expresan con "I like" + actividad.');
+    mc('¿Cómo respondes "Why are you studying English?"', ['Because I want to improve my opportunities', 'I am 18 years old', 'I live in Merida'], 0, '"Because" introduce la razón para estudiar inglés.');
+
+    return qs;
+  })();
+
+  const readingQuestions = (() => {
+    const qs = [];
+    function mc(q, opts, ans, exp) { qs.push({ type: 'multiple-choice', question: q, options: opts, answer: ans, explanation: exp }); }
+    function fb(q, ans, exp) { qs.push({ type: 'fill-blank', question: q, answer: ans, explanation: exp }); }
+    function tf(q, ans, exp) { qs.push({ type: 'true-false', question: q, answer: ans, explanation: exp }); }
+
+    // Técnica de lectura rápida
+    mc('¿Qué debes hacer primero al leer un texto?', ['Leer el título y predecir el tema', 'Traducir cada palabra', 'Leer todo rápido'], 0, 'El título da pistas sobre el contenido.');
+    mc('¿Qué elementos debes buscar al leer un texto?', ['Nombres, fechas, lugares y números', 'Solo adjetivos', 'Palabras difíciles'], 0, 'Estos datos te ayudan a entender detalles clave.');
+    mc('¿Qué partes del texto debes leer primero?', ['Primera y última oración de cada párrafo', 'Solo el primer párrafo', 'El último párrafo'], 0, 'Esto te da la idea general rápidamente.');
+    mc('¿Qué tipo de palabras debes subrayar?', ['Conectores como but, because, so, however', 'Todas las palabras', 'Las que no entiendes'], 0, 'Los conectores muestran la relación entre ideas.');
+    mc('¿Qué preguntas debes responder primero?', ['Las fáciles', 'Las difíciles', 'Las de vocabulario'], 0, 'Responder lo seguro primero da confianza y tiempo.');
+    mc('¿Qué debes evitar al leer?', ['Traducir palabra por palabra', 'Leer el título', 'Buscar números'], 0, 'Traducir todo ralentiza y no es necesario.');
+
+    mc('Learning English is not only about grammar. Many students know rules, but they feel nervous when they have to speak. A good way to improve is to practice a little every day. ¿Cuál es la idea principal?', ['El inglés mejora con práctica diaria, no solo gramática', 'La gramática es lo único importante', 'Los estudiantes no necesitan practicar'], 0, 'El texto dice que la práctica diaria es clave.');
+    mc('¿Por qué se sienten nerviosos muchos estudiantes?', ['Porque tienen que hablar', 'Porque no estudian vocabulario', 'Porque el inglés es difícil'], 0, 'Saber reglas no es suficiente; hablar causa nervios.');
+    mc('¿Qué actividades recomienda el texto?', ['Escuchar, repetir frases y escribir párrafos', 'Solo leer libros', 'Solo hacer ejercicios de gramática'], 0, 'Escuchar conversaciones, repetir frases y escribir párrafos.');
+    mc('¿Por qué son importantes los errores según el texto?', ['Muestran lo que necesitas estudiar después', 'Son malos y deben evitarse', 'Significan que no aprendes'], 0, 'Los errores indican áreas de mejora.');
+    mc('Un texto sobre daily routine probablemente incluirá...', ['wake up, work, study, rest', 'astronaut, rocket, space', 'government, election, law'], 0, 'La rutina diaria usa vocabulario de actividades cotidianas.');
+    mc('Un texto sobre tecnología mencionará probablemente...', ['phone, computer, app, device', 'tree, river, mountain', 'pen, paper, book'], 0, 'Vocabulario de tecnología: device, download, upload, app.');
+
+    fb('La primera técnica de lectura es ___ el tema por el título.', 'predecir', 'Predecir el tema ayuda a activar vocabulario conocido.');
+    fb('Busca ___, fechas, lugares y números en el texto.', 'nombres', 'Los nombres propios dan contexto sobre quién y dónde.');
+    fb('Lee la primera y última ___ de cada párrafo.', 'oración', 'La primera oración suele dar la idea principal.');
+    fb('Los ___ como "but" y "because" muestran relaciones entre ideas.', 'conectores', 'Conectores guían la comprensión del texto.');
+    fb('Responde primero las preguntas ___ y luego las difíciles.', 'fáciles', 'Gana tiempo y confianza con las preguntas seguras.');
+
+    tf('Debes traducir cada palabra del texto al español.', false, 'Traducir todo es lento e innecesario. Busca la idea general.');
+    tf('El título del texto ayuda a predecir el tema.', true, 'El título da pistas importantes sobre el contenido.');
+    tf('Leer la primera oración de cada párrafo da la idea general.', true, 'La primera oración suele ser la topic sentence.');
+    tf('Los conectores no son importantes para entender el texto.', false, 'Los conectores muestran la relación entre ideas.');
+    tf('Es mejor responder primero las preguntas difíciles.', false, 'Responde primero las fáciles para ganar tiempo y confianza.');
+    tf('Buscar nombres y números ayuda a encontrar detalles rápido.', true, 'Estos datos son fáciles de localizar en el texto.');
+
+    // More questions
+    mc('Un texto sobre "My favorite place" probablemente...', ['describe un lugar y da razones personales', 'solo da direcciones', 'habla de tecnología'], 0, 'Textos descriptivos incluyen detalles y opiniones personales.');
+    mc('Un texto sobre "A healthy lifestyle" mencionará...', ['exercise, food, sleep, habits', 'computers, apps, devices', 'planes, trains, cars'], 0, 'Salud y bienestar usan vocabulario de hábitos.');
+    mc('Un texto que empieza con "First, I wake up..." trata de...', ['una rutina diaria', 'un viaje', 'una opinión'], 0, '"First" indica una secuencia de acciones rutinarias.');
+    mc('Un correo que dice "I am writing because..." es...', ['informativo o de solicitud', 'una historia de ficción', 'un poema'], 0, 'Los correos formales comienzan indicando el propósito.');
+    mc('Un texto con "however" y "on the other hand" está...', ['contrastando ideas', 'dando ejemplos', 'narrando una historia'], 0, 'Estos conectores señalan contraste entre ideas.');
+    mc('Un texto que menciona "yesterday, last weekend, ago" está en...', ['pasado simple', 'presente simple', 'futuro'], 0, 'Estos marcadores indican tiempo pasado.');
+
+    fb('Al leer, ___ el tema por el título antes de empezar.', 'predice', 'Predecir activa tu conocimiento previo del tema.');
+    fb('Subraya los ___ como "but" y "because" en el texto.', 'conectores', 'Conectores muestran relaciones lógicas entre ideas.');
+    fb('La primera oración de un párrafo suele ser la ___ sentence.', 'topic', 'La topic sentence presenta la idea principal del párrafo.');
+    fb('Para encontrar detalles rápido, busca ___ , fechas y lugares.', 'nombres', 'Los nombres propios son fáciles de localizar visualmente.');
+
+    tf('Skimming significa leer cada palabra cuidadosamente.', false, 'Skimming es lectura rápida para idea general.');
+    tf('Scanning es buscar información específica en el texto.', true, 'Scanning es buscar datos concretos como números o fechas.');
+    tf('El título de un texto no es importante para entenderlo.', false, 'El título da pistas clave sobre el contenido.');
+    tf('Los conectores ayudan a entender la estructura del texto.', true, 'Conectores organizan y conectan las ideas del texto.');
+    tf('Debes responder las preguntas en el orden en que aparecen.', false, 'Responde primero las fáciles, después las difíciles.');
+    tf('Leer en voz alta ayuda a mejorar comprensión lectora.', true, 'Leer en voz alta refuerza pronunciación y comprensión.');
+    tf('Un párrafo bien escrito tiene una idea principal clara.', true, 'Cada párrafo debe desarrollar una sola idea principal.');
+    tf('El vocabulario desconocido siempre debes buscarlo en el diccionario.', false, 'Primero intenta adivinar el significado por contexto.');
+
+    mc('¿Qué significa inferred el significado por contexto?', ['Deducir el significado usando las palabras alrededor', 'Buscar en diccionario', 'Preguntar al profesor'], 0, 'Inferir por contexto es una habilidad clave de lectura.');
+    mc('Un texto con "First... Then... After that... Finally" está...', ['describiendo un proceso o secuencia', 'dando una opinión', 'comparando dos cosas'], 0, 'Estos conectores organizan pasos en orden.');
+    mc('Un texto que describe "a beautiful beach with white sand" es...', ['descriptivo', 'instructivo', 'argumentativo'], 0, 'Textos descriptivos usan adjetivos para crear imágenes.');
+    mc('Si un texto dice "I recommend this restaurant because..." es...', ['una reseña o recomendación', 'una noticia', 'un instructivo'], 0, 'Las reseñas expresan opiniones y recomendaciones.');
+    mc('Para textos largos, es útil leer...', ['el primer párrafo y la conclusión primero', 'solo el medio', 'empezar desde el final'], 0, 'Primer párrafo y conclusión dan la idea general.');
+    mc('¿Qué significa "main idea" de un texto?', ['La idea principal que el autor quiere comunicar', 'La primera oración', 'El título'], 0, 'La main idea es el mensaje central del texto.');
+
+    return qs;
+  })();
+
+  const listeningQuestions = (() => {
+    const qs = [];
+    function mc(q, opts, ans, exp) { qs.push({ type: 'multiple-choice', question: q, options: opts, answer: ans, explanation: exp }); }
+    function fb(q, ans, exp) { qs.push({ type: 'fill-blank', question: q, answer: ans, explanation: exp }); }
+    function tf(q, ans, exp) { qs.push({ type: 'true-false', question: q, answer: ans, explanation: exp }); }
+
+    // Método de 3 escuchas
+    mc('¿Cuál es el objetivo de la primera escucha?', ['Idea general', 'Todos los detalles', 'Vocabulario nuevo'], 0, 'Primera escucha: entender de qué trata la conversación.');
+    mc('¿Qué debes hacer en la segunda escucha?', ['Anotar detalles: números, lugares, fechas', 'Solo relajarte', 'Traducir todo'], 0, 'Segunda escucha: enfocarse en información específica.');
+    mc('¿Qué debes hacer en la tercera escucha?', ['Copiar frases útiles para speaking', 'Cerrar el cuaderno', 'Hablar al mismo tiempo'], 0, 'Tercera escucha: identificar lenguaje que puedes usar.');
+    mc('¿Qué NO debes hacer al escuchar?', ['Traducir todo mientras escuchas', 'Prestar atención a palabras clave', 'Identificar quiénes hablan'], 0, 'Traducir todo mientras escuchas te retrasa.');
+    mc('Al escuchar, pregúntate: ¿de qué hablan? ¿quiénes son? ¿dónde están? Esto ayuda a entender...', ['la situación general', 'cada palabra', 'la gramática'], 0, 'Identificar el contexto ayuda a comprender el resto.');
+
+    // Palabras clave
+    mc('¿Qué palabra indica contraste?', ['but', 'because', 'so'], 0, '"But" contrasta dos ideas opuestas.');
+    mc('¿Qué palabra indica una razón?', ['because', 'however', 'finally'], 0, '"Because" introduce la causa de algo.');
+    mc('¿Qué palabra indica un resultado?', ['so', 'but', 'first'], 0, '"So" expresa la consecuencia de algo.');
+    mc('¿Qué palabra indica secuencia?', ['first', 'because', 'although'], 0, '"First" ordena los pasos de una secuencia.');
+    mc('¿Qué palabra introduce una opinión?', ['I think', 'but', 'then'], 0, '"I think" introduce una opinión personal.');
+    mc('¿Qué palabra indica preferencia?', ['I prefer', 'first', 'so'], 0, '"I prefer" expresa preferencia entre opciones.');
+    mc('¿Qué palabra significa "sin embargo"?', ['however', 'because', 'also'], 0, '"However" contrasta ideas de forma similar a "but".');
+
+    mc('Si escuchas "but", esperas...', ['una idea contraria', 'una razón', 'un ejemplo'], 0, '"But" introduce un contraste con lo anterior.');
+    mc('Si escuchas "because", esperas...', ['una explicación o causa', 'un resultado', 'una secuencia'], 0, '"Because" da la razón de algo.');
+    mc('Si escuchas "so", esperas...', ['una consecuencia', 'una opinión', 'un contraste'], 0, '"So" indica el resultado de una acción.');
+    mc('Si escuchas "first, then, after that", esperas...', ['una secuencia de pasos', 'una opinión', 'un contraste'], 0, 'Estas palabras organizan información en orden.');
+    mc('Si escuchas "in my opinion", esperas...', ['una opinión personal', 'un hecho objetivo', 'una pregunta'], 0, '"In my opinion" introduce una perspectiva subjetiva.');
+
+    fb('En la primera escucha, busca la ___ general.', 'idea', 'No necesitas detalles aún, solo el tema principal.');
+    fb('En la segunda escucha, anota ___, lugares y fechas.', 'números', 'Los números y datos concretos son detalles clave.');
+    fb('En la tercera escucha, copia ___ completas.', 'frases', 'Frases útiles que puedes usar en tu speaking.');
+    fb('"___" indica contraste entre dos ideas.', 'But', '"But" conecta ideas opuestas.');
+    fb('"___" introduce una razón o causa.', 'Because', '"Because" explica por qué algo sucede.');
+
+    tf('En la primera escucha debes entender cada palabra.', false, 'Primera escucha: solo idea general, no cada palabra.');
+    tf('Las palabras como "but" y "however" indican contraste.', true, 'Ambas señalan una idea opuesta a lo anterior.');
+    tf('"So" se usa para introducir un resultado.', true, 'Correcto: "I was tired, so I went home."');
+    tf('Debes traducir al español mientras escuchas.', false, 'Traducir mientras escuchas dificulta la comprensión.');
+    tf('Es útil preguntarse quiénes son y dónde están al escuchar.', true, 'Identificar el contexto facilita la comprensión global.');
+    tf('"First" se usa para introducir una opinión.', false, '"First" indica el primer paso de una secuencia.');
+
+    // More questions
+    mc('¿Qué tipo de información buscas en la segunda escucha?', ['Detalles específicos: números, lugares, fechas', 'Solo la idea general', 'Palabras nuevas'], 0, 'Segunda escucha: detalles concretos.');
+    mc('¿Qué significa "that is why" en una conversación?', ['Introduce una conclusión o resultado', 'Una pregunta', 'Un saludo'], 0, '"That is why" explica la razón de algo mencionado.');
+    mc('Si escuchas "on the other hand", esperas...', ['un punto de vista opuesto', 'un ejemplo', 'una conclusión'], 0, '"On the other hand" introduce el lado opuesto de un argumento.');
+    mc('¿Qué debes hacer si el listening es muy rápido?', ['Escuchar varias veces, enfocándote en diferente información cada vez', 'Rendirte', 'Solo escuchar una vez'], 0, 'El método de 3 escuchas ayuda con audios rápidos.');
+    mc('¿Qué información es útil identificar al inicio?', ['Quiénes hablan, dónde están y de qué hablan', 'Cada palabra', 'La fecha exacta'], 0, 'El contexto general ayuda a entender detalles después.');
+    mc('¿Qué tipo de palabras son fáciles de identificar en listening?', ['Números, nombres y lugares', 'Conectores complejos', 'Adjetivos raros'], 0, 'Los números y nombres propios son más fáciles de reconocer.');
+    mc('Si escuchas "I guess", la persona está...', ['expresando una opinión no definitiva', 'dando un hecho', 'haciendo una pregunta'], 0, '"I guess" indica una opinión o suposición.');
+    mc('Si escuchas "I would rather", la persona está...', ['expresando preferencia', 'dando una orden', 'hablando del pasado'], 0, '"I would rather" expresa preferencia entre opciones.');
+    mc('¿Qué conectores indican que viene una conclusión?', ['so, therefore, that is why', 'but, however, although', 'first, then, after that'], 0, 'Estos conectores introducen un resultado o conclusión.');
+
+    fb('En la primera escucha, enfócate en la idea ___.', 'general', 'No necesitas detalles todavía.');
+    fb('En la segunda escucha, anota ___ como precios o fechas.', 'números', 'Los números son detalles clave en listening.');
+    fb('"___ the other hand" introduce un contraste.', 'On', '"On the other hand" = por otro lado.');
+    fb('"___ " indica que alguien va a dar su opinión.', 'I think', '"I think" introduce una opinión personal.');
+    fb('"___ " significa "prefiero".', 'I prefer', '"I prefer" expresa preferencia.');
+    fb('Cuando escuches "___ ", espera una consecuencia.', 'so', '"So" señala el resultado de algo.');
+
+    tf('En la tercera escucha debes copiar frases completas útiles.', true, 'Tercera escucha: identifica lenguaje para tu speaking.');
+    tf('Las palabras de contraste son difíciles de escuchar.', false, 'Palabras como "but" son cortas pero fáciles de identificar.');
+    tf('Es normal no entender cada palabra en un listening.', true, 'No necesitas entender todo; enfócate en información clave.');
+    tf('Los números son más fáciles de identificar en listening.', true, 'Los números destacan y dan información precisa.');
+    tf('Si el audio es rápido, solo escúchalo una vez.', false, 'Usa el método de 3 escuchas para diferentes propósitos.');
+    tf('Identificar a los hablantes ayuda a entender el contexto.', true, 'Saber quién habla y dónde ayuda a comprender el mensaje.');
+
+    return qs;
+  })();
+
+  const writingQuestions = (() => {
+    const qs = [];
+    function mc(q, opts, ans, exp) { qs.push({ type: 'multiple-choice', question: q, options: opts, answer: ans, explanation: exp }); }
+    function fb(q, ans, exp) { qs.push({ type: 'fill-blank', question: q, answer: ans, explanation: exp }); }
+    function tf(q, ans, exp) { qs.push({ type: 'true-false', question: q, answer: ans, explanation: exp }); }
+
+    // Estructura de párrafo
+    mc('¿Cuál es el primer elemento de un párrafo?', ['Topic sentence (idea principal)', 'Un ejemplo', 'El cierre'], 0, 'La topic sentence presenta la idea principal del párrafo.');
+    mc('¿Qué viene después de la topic sentence?', ['Detail 1: primera razón o detalle', 'El saludo', 'Una pregunta'], 0, 'Después de la idea principal, desarrolla con detalles.');
+    mc('¿Cómo se cierra un párrafo?', ['Closing sentence: cierre sencillo', 'Una nueva idea', 'Una pregunta'], 0, 'El cierre resume o concluye la idea.');
+    mc('¿Qué debe tener cada oración en inglés?', ['Sujeto y verbo', 'Solo un verbo', 'Dos adjetivos'], 0, 'Toda oración completa necesita sujeto y verbo.');
+    mc('¿Qué conectores son útiles para escribir párrafos?', ['because, but, also, so', 'however, although, first, then', 'Todas las anteriores'], 2, 'Todos estos conectores mejoran la claridad del texto.');
+
+    // Emails
+    mc('¿Cómo empiezas un email informal?', ['Hi Ana,', 'Dear Sir,', 'To whom it may concern,'], 0, '"Hi + nombre" es apropiado para emails informales.');
+    mc('¿Qué frase usas para iniciar un email?', ['I hope you are well.', 'The end.', 'Goodbye.'], 0, 'Un saludo inicial cordial como "I hope you are well."');
+    mc('¿Cómo expresas el motivo del email?', ['I am writing because...', 'I like pizza.', 'Yesterday I...'], 0, '"I am writing because..." introduce el propósito.');
+    mc('¿Cómo cierras un email formal?', ['Best regards,', 'See you!', 'Bye'], 0, '"Best regards" es un cierre formal apropiado.');
+    mc('¿Cómo pides algo amablemente en un email?', ['Could you...?', 'Give me...', 'I want...'], 0, '"Could you..." es una forma cortés de pedir.');
+
+    // Writing tasks
+    mc('Para escribir sobre tu rutina diaria, ¿qué tiempo verbal usas?', ['Present Simple', 'Past Simple', 'Future'], 0, 'La rutina diaria se describe en presente simple.');
+    mc('Para escribir sobre tus últimas vacaciones, ¿qué tiempo usas?', ['Past Simple', 'Present Simple', 'Present Perfect'], 0, 'Las vacaciones pasadas requieren pasado simple.');
+    mc('Para escribir un párrafo de opinión, ¿cómo empiezas?', ['I think... / In my opinion...', 'Yesterday...', 'First...'], 0, 'Las opiniones se introducen con "I think" o "In my opinion".');
+    mc('¿Qué debe tener un buen párrafo de opinión?', ['Idea principal, razón, ejemplo y cierre', 'Solo una oración larga', 'Muchas preguntas'], 0, 'Un párrafo de opinión sigue la misma estructura.');
+
+    // Checklist
+    mc('¿Qué debes revisar antes de entregar un writing?', ['Sujeto y verbo en cada oración', 'Que sea muy largo', 'Que tenga palabras difíciles'], 0, 'Cada oración debe tener sujeto y verbo claros.');
+    mc('¿Qué más debes revisar?', ['Mayúscula al inicio y punto al final', 'Que no haya conectores', 'Que solo tenga preguntas'], 0, 'La puntuación básica es esencial para la claridad.');
+    mc('¿Qué error común debes evitar en third person?', ['Olvidar la -s en he/she/it', 'Usar mayúsculas', 'Poner punto final'], 0, 'He/she/it requiere verbo con -s en presente simple.');
+    mc('¿Qué debes revisar en preguntas y negativas en pasado?', ['Did + verb base (sin pasado)', 'Usar pasado en ambos verbos', 'Poner "to" después de did'], 0, 'Después de "did", el verbo vuelve a forma base.');
+    mc('¿Por qué es importante usar conectores?', ['Conectan ideas y hacen el texto más claro', 'Son obligatorios en cada oración', 'Solo se usan en writing formal'], 0, 'Los conectores mejoran la fluidez y claridad.');
+
+    fb('Completa: "I am writing ___ I need information."', 'because', '"Because" introduce la razón del email.');
+    fb('Completa: "I ___ you are well." (espero)', 'hope', '"I hope you are well" es un saludo inicial común.');
+    fb('Completa: "___ Regards,"', 'Best', '"Best regards" es un cierre formal estándar.');
+    fb('Completa: "Thank you ___ your help."', 'for', '"Thank you for" agradece por algo específico.');
+    fb('Completa el consejo: "You ___ practice every day."', 'should', '"Should" da recomendaciones.');
+    fb('Completa: "In my ___, technology is useful."', 'opinion', '"In my opinion" introduce la perspectiva personal.');
+    fb('Completa: "___ , I wake up at 7 am."', 'First', '"First" ordena la secuencia de actividades.');
+    fb('Completa: "I like English, ___ speaking is difficult."', 'but', '"But" contrasta dos ideas.');
+    fb('Completa: "I studied hard, ___ I passed the exam."', 'so', '"So" expresa el resultado.');
+    fb('Completa: "Each ___ should have a subject and verb."', 'sentence', 'Cada oración necesita sujeto y verbo.');
+
+    tf('Un párrafo debe tener solo una oración.', false, 'Un párrafo tiene varias oraciones: idea, detalles, cierre.');
+    tf('"I think" y "In my opinion" son formas de expresar opinión.', true, 'Ambas introducen una opinión personal.');
+    tf('En un email formal puedes usar "Hey!" como saludo.', false, '"Hey!" es muy informal. Usa "Dear" o "Hi" + nombre.');
+    tf('Después de "did" el verbo va en pasado.', false, 'Después de "did" el verbo va en forma base: "I didn\'t go".');
+    tf('Es importante revisar mayúsculas y puntos en writing.', true, 'La puntuación básica mejora la claridad del texto.');
+    tf('Los conectores hacen que un texto sea más claro.', true, 'Conectores como "because", "but", "so" guían al lector.');
+    tf('En tercera persona (he/she/it) el verbo lleva -s.', true, 'Correcto: "She works", "He studies".');
+
+    // More questions
+    mc('¿Qué tipo de writing usa "Hi Ana" como saludo?', ['Email informal', 'Ensayo académico', 'Poema'], 0, '"Hi + nombre" es típico de emails informales.');
+    mc('¿Cómo expresas gratitud en un email?', ['Thank you for your help', 'I am tired', 'Goodbye'], 0, '"Thank you for" es una forma educada de agradecer.');
+    mc('¿Qué conectores usas para secuenciar ideas?', ['First, then, after that, finally', 'But, however, although', 'Because, since, so'], 0, 'Los conectores de secuencia ordenan pasos o ideas.');
+    mc('¿Qué tiempo verbal usas para escribir sobre tu rutina?', ['Present Simple', 'Past Simple', 'Future'], 0, 'La rutina diaria se describe en presente simple.');
+    mc('¿Qué tiempo verbal usas para escribir sobre un viaje pasado?', ['Past Simple', 'Present Simple', 'Present Perfect'], 0, 'Eventos pasados y finalizados usan pasado simple.');
+    mc('¿Qué debes evitar en writing B1?', ['Frases demasiado largas y complejas', 'Usar conectores', 'Escribir párrafos cortos'], 0, 'La claridad es más importante que la complejidad.');
+    mc('¿Cómo empiezas un párrafo de opinión?', ['In my opinion... / I think...', 'Yesterday...', 'First...'], 0, 'Las opiniones se introducen con "In my opinion" o "I think".');
+    mc('¿Qué debe tener un email formal al inicio?', ['Saludo + motivo del mensaje', 'Solo el nombre', 'Una pregunta'], 0, 'Un email formal comienza con saludo y propósito claro.');
+    mc('Al escribir en pasado, ¿qué debes recordar?', ['Did + verb base en preguntas/negativas', 'Usar pasado en ambos verbos', 'Poner "to" después de did'], 0, '"Did" ya indica pasado, el verbo principal va en forma base.');
+    mc('¿Qué ayuda a que un párrafo sea más claro?', ['Una idea principal por párrafo', 'Muchas ideas en un solo párrafo', 'Sin conectores'], 0, 'Cada párrafo debe desarrollar una sola idea.');
+
+    fb('Completa: "I look ___ to your answer."', 'forward', '"I look forward to" es una expresión formal de expectativa.');
+    fb('Completa: "Dear Mr. Smith" es un saludo ___ .', 'formal', '"Dear + apellido" es formal. "Hi + nombre" es informal.');
+    fb('Completa: "___ , I wake up at 6 am." (primero)', 'First', '"First" introduce el primer paso de una secuencia.');
+    fb('Completa: "___ that, I go to school." (después de eso)', 'After', '"After that" indica el siguiente paso.');
+    fb('Completa: "I was tired, ___ I went to bed." (así que)', 'so', '"So" expresa el resultado de una situación.');
+    fb('Completa: "___ I don\'t like coffee, I drink tea." (aunque)', 'Although', '"Although" introduce un contraste.');
+    fb('Completa: "She ___ (work) every day." (tercera persona)', 'works', 'He/she/it requiere verbo con -s en presente simple.');
+    fb('Completa: "They ___ (not/go) to the party yesterday."', 'didn\'t go', '"Didn\'t" + verbo base para negar en pasado.');
+
+    tf('Un buen párrafo debe mezclar varios tiempos verbales sin razón.', false, 'Mantén un tiempo verbal consistente a menos que haya razón para cambiar.');
+    tf('"I look forward to your answer" es un cierre formal.', true, 'Se usa en emails formales para expresar expectativa.');
+    tf('En writing B1 es mejor usar oraciones cortas y claras.', true, 'La claridad es más importante que la complejidad.');
+    tf('Los conectores hacen el texto más difícil de entender.', false, 'Los conectores mejoran la claridad y fluidez del texto.');
+    tf('"Best regards" es apropiado para un email informal a un amigo.', false, '"Best regards" es formal. Para amigos usa "Best" o "See you".');
+    tf('Cada oración en inglés necesita sujeto y verbo.', true, 'Toda oración completa tiene sujeto y verbo.');
+    tf('Puedes mezclar presente y pasado libremente en un párrafo.', false, 'Cambiar de tiempo sin razón confunde al lector.');
+    tf('Revisar mayúsculas y puntuación es importante en writing.', true, 'La puntuación correcta mejora la claridad del texto.');
+
+    return qs;
+  })();
+
   return {
     getDiagnosticQuestions() { return diagnosticQuestions; },
     getFundamentosQuestions() { return fundamentosQuestions; },
     getGramaticaQuestions() { return gramaticaQuestions; },
     getVocabularioQuestions() { return vocabularioQuestions; },
+    getSpeakingQuestions() { return speakingQuestions; },
+    getReadingQuestions() { return readingQuestions; },
+    getListeningQuestions() { return listeningQuestions; },
+    getWritingQuestions() { return writingQuestions; },
     getQuestions,
     shuffle,
     pickRandom,

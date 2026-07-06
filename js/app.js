@@ -62,6 +62,10 @@ const App = (() => {
       'fundamentos': '📚',
       'gramatica': '📝',
       'vocabulario': '📖',
+      'speaking': '🎤',
+      'reading': '📖',
+      'listening': '🎧',
+      'writing': '✍️',
       'progreso': '📊'
     };
     return icons[id] || '📖';

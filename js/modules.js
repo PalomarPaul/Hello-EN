@@ -711,6 +711,237 @@ const Modules = (() => {
     }
   };
 
+  modules['speaking'] = {
+    id: 'speaking',
+    title: 'Speaking B1',
+    level: 'B1 Target',
+    render(container) {
+      container.appendChild(section(null,
+        h('div', { style: 'margin-bottom:0.5rem' },
+          h('h2', { style: 'font-size:1.75rem;margin-bottom:0.25rem' }, 'Speaking — Cómo responder como B1'),
+          levelBadge('B1 Target'),
+          p('Para el examen de ubicación, hablar con estructura vale mucho. No necesitas frases perfectas; necesitas responder, conectar ideas y dar ejemplos.')
+        )
+      ));
+
+      container.appendChild(section('5.1 Fórmula de respuesta B1',
+        p('Una respuesta sólida suele seguir este orden:'),
+        list([
+          'Respuesta directa',
+          'Razón',
+          'Ejemplo o detalle personal',
+          'Cierre sencillo'
+        ]),
+        exampleBox([
+          { en: 'I am studying English because I want to improve my opportunities. For example, English can help me at school and in future jobs. Also, I want to understand videos and conversations better. That is why English is important for me.', es: 'Estoy estudiando inglés porque quiero mejorar mis oportunidades...' }
+        ])
+      ));
+
+      container.appendChild(section('5.2 Frases para ganar tiempo',
+        p('Úsalas cuando necesites pensar o cuando no recuerdes una palabra exacta:'),
+        list([
+          'Let me think for a second.',
+          'That is an interesting question.',
+          'I don\'t know the exact word, but I mean...',
+          'Could you repeat the question, please?',
+          'In my opinion...',
+          'For example...',
+          'Another reason is...',
+          'To be honest...'
+        ])
+      ));
+
+      container.appendChild(section('5.3 Preguntas típicas y respuestas modelo',
+        table(['Pregunta', 'Idea de respuesta'], [
+          ['Tell me about yourself.', 'Nombre, origen, ocupación, intereses y por qué estudias inglés.'],
+          ['What do you usually do on weekdays?', 'Rutina diaria con conectores: first, then, after that.'],
+          ['What did you do last weekend?', 'Experiencia pasada con detalles: lugar, persona, resultado.'],
+          ['What are you going to do next year?', 'Planes futuros con going to / will.'],
+          ['Do you prefer studying alone or with others?', 'Opinión con ventaja y desventaja de cada opción.'],
+          ['Describe a place you like.', 'Nombre del lugar, por qué te gusta, qué puedes hacer ahí.'],
+          ['What is difficult about learning English?', 'Área difícil (speaking, listening), por qué y cómo mejoras.'],
+          ['What technology do you use every day?', 'Aparatos que usas, para qué y por qué son útiles.'],
+          ['What should people do to be healthy?', 'Consejos con should: sleep, exercise, eat well.'],
+          ['Have you ever traveled to another place?', 'Experiencia con presente perfecto: where, when, why.']
+        ])
+      ));
+
+      container.appendChild(section('5.4 Mini monólogos para practicar',
+        p('Elige un tema y habla 60 a 90 segundos. Usa esta estructura:'),
+        list([
+          'Introduction: I want to talk about...',
+          'Details: First..., Also..., For example...',
+          'Opinion: I think... because...',
+          'Closing: That is why...'
+        ]),
+        infoCard('Temas sugeridos', 'My daily routine, A person I admire, A place I want to visit, My favorite food, My plans for the future, Why English is important, Technology in my life, A healthy lifestyle.')
+      ));
+
+      container.appendChild(section('5.5 Pronunciación mínima para el examen',
+        table(['Tema', 'Qué cuidar'], [
+          ['Terminación -ed', 'worked / played / visited — tres sonidos distintos'],
+          ['Tercera persona -s', 'She works, he studies — no olvidarla'],
+          ['Contracciones', 'I\'m, you\'re, don\'t, didn\'t, I\'ve — suenan natural'],
+          ['Entonación en preguntas', 'Sube un poco al final en yes/no questions']
+        ])
+      ));
+
+      container.appendChild(section('Ejercicios de práctica',
+        p('Practica el vocabulario y las estrategias de speaking con ejercicios interactivos.')
+      ));
+
+      Exercises.renderExerciseSet(container, 'speaking', Exercises.getSpeakingQuestions());
+    }
+  };
+
+  modules['reading'] = {
+    id: 'reading',
+    title: 'Reading B1',
+    level: 'B1 Target',
+    render(container) {
+      container.appendChild(section(null,
+        h('div', { style: 'margin-bottom:0.5rem' },
+          h('h2', { style: 'font-size:1.75rem;margin-bottom:0.25rem' }, 'Reading — Estrategias de lectura B1'),
+          levelBadge('B1 Target'),
+          p('Desarrolla estrategias para entender textos: idea general, detalles y vocabulario en contexto.')
+        )
+      ));
+
+      container.appendChild(section('6.1 Técnica de lectura rápida',
+        p('Usa este método para leer de forma más eficiente:'),
+        list([
+          'Lee el título y predice el tema.',
+          'Busca nombres, fechas, lugares y números.',
+          'Lee la primera y última oración de cada párrafo.',
+          'Subraya conectores: but, because, so, however.',
+          'Responde primero las preguntas fáciles; vuelve después a las difíciles.',
+          'No traduzcas palabra por palabra. Entiende la función de cada oración.'
+        ])
+      ));
+
+      container.appendChild(section('6.2 Mini reading practice',
+        h('div', { className: 'practice-card' },
+          h('h4', null, 'Texto'),
+          h('p', null, 'Learning English is not only about grammar. Many students know rules, but they feel nervous when they have to speak. A good way to improve is to practice a little every day. For example, students can listen to short conversations, repeat useful phrases, and write simple paragraphs about their life. It is also important to make mistakes because mistakes show what you need to study next.')
+        ),
+        infoCard('Preguntas guía', '1. ¿Cuál es la idea principal? 2. ¿Por qué se sienten nerviosos? 3. ¿Qué actividades recomienda? 4. ¿Por qué son importantes los errores?')
+      ));
+
+      container.appendChild(section('Ejercicios de práctica',
+        p('Practica las estrategias de lectura con ejercicios interactivos.')
+      ));
+
+      Exercises.renderExerciseSet(container, 'reading', Exercises.getReadingQuestions());
+    }
+  };
+
+  modules['listening'] = {
+    id: 'listening',
+    title: 'Listening B1',
+    level: 'B1 Target',
+    render(container) {
+      container.appendChild(section(null,
+        h('div', { style: 'margin-bottom:0.5rem' },
+          h('h2', { style: 'font-size:1.75rem;margin-bottom:0.25rem' }, 'Listening — Estrategias de comprensión auditiva'),
+          levelBadge('B1 Target'),
+          p('Aprende a escuchar de forma activa: idea general, detalles y lenguaje útil.')
+        )
+      ));
+
+      container.appendChild(section('6.1 Método de 3 escuchas',
+        table(['Escucha', 'Objetivo', 'Qué hacer'], [
+          ['1', 'Idea general', 'No traduzcas todo. Pregúntate: ¿de qué hablan? ¿quiénes son? ¿dónde están?'],
+          ['2', 'Detalles', 'Anota números, lugares, fechas, problemas, decisiones.'],
+          ['3', 'Lenguaje útil', 'Copia frases completas que podrías usar hablando.']
+        ]),
+        infoCard('Consejo', 'Cuando uses Top Notch, escucha el audio del diálogo sin leer primero, luego lee, después repite en voz alta.')
+      ));
+
+      container.appendChild(section('6.2 Palabras clave en listening',
+        table(['Tipo de señal', 'Palabras'], [
+          ['Contraste', 'but, however, although, on the other hand'],
+          ['Razón', 'because, since, that is why'],
+          ['Resultado', 'so, therefore'],
+          ['Secuencia', 'first, then, after that, finally'],
+          ['Opinión', 'I think, I guess, in my opinion'],
+          ['Preferencia', 'I prefer, I would rather, I like better']
+        ])
+      ));
+
+      container.appendChild(section('Ejercicios de práctica',
+        p('Practica las estrategias de listening con ejercicios interactivos.')
+      ));
+
+      Exercises.renderExerciseSet(container, 'listening', Exercises.getListeningQuestions());
+    }
+  };
+
+  modules['writing'] = {
+    id: 'writing',
+    title: 'Writing B1',
+    level: 'B1 Target',
+    render(container) {
+      container.appendChild(section(null,
+        h('div', { style: 'margin-bottom:0.5rem' },
+          h('h2', { style: 'font-size:1.75rem;margin-bottom:0.25rem' }, 'Writing — Escribe para B1'),
+          levelBadge('B1 Target'),
+          p('Tu escritura debe ser clara, organizada y sencilla. Evita frases demasiado largas. Usa conectores.')
+        )
+      ));
+
+      container.appendChild(section('7.1 Estructura de párrafo',
+        p('Un párrafo simple sigue esta lógica:'),
+        list([
+          'Topic sentence: presenta la idea principal.',
+          'Detail 1: primera razón o detalle.',
+          'Detail 2: segunda razón o ejemplo.',
+          'Closing sentence: cierre sencillo.'
+        ]),
+        exampleBox([
+          { en: 'English is important for my future. First, it can help me understand more information online. Also, it can give me better opportunities at school and work. For that reason, I want to practice every day.', es: 'El inglés es importante para mi futuro...' }
+        ])
+      ));
+
+      container.appendChild(section('7.2 Emails básicos',
+        table(['Parte', 'Frases útiles'], [
+          ['Saludo', 'Hi Ana, / Dear Mr. Smith,'],
+          ['Inicio', 'I hope you are well. / I am writing because...'],
+          ['Cuerpo', 'I wanted to ask about... / I would like to know... / Also,...'],
+          ['Cierre', 'Thank you for your help. / I look forward to your answer.'],
+          ['Despedida', 'Best regards, / Sincerely,']
+        ])
+      ));
+
+      container.appendChild(section('7.3 Writing tasks para practicar',
+        list([
+          'Write an email asking for information about an English course.',
+          'Write a paragraph about your daily routine.',
+          'Write about your last vacation or weekend.',
+          'Write your opinion about technology in education.',
+          'Write advice for a friend who wants to be healthier.',
+          'Write about a goal you have for next year.'
+        ])
+      ));
+
+      container.appendChild(section('7.4 Checklist antes de entregar',
+        list([
+          'Cada oración tiene sujeto y verbo.',
+          'Usé mayúscula al inicio y punto al final.',
+          'No mezclé presente y pasado sin razón.',
+          'Agregué conectores: because, but, also, so.',
+          'Revisé tercera persona: he/she/it + s.',
+          'Revisé pasado: did + verb base en preguntas/negativas.'
+        ])
+      ));
+
+      container.appendChild(section('Ejercicios de práctica',
+        p('Practica las estrategias de writing con ejercicios interactivos.')
+      ));
+
+      Exercises.renderExerciseSet(container, 'writing', Exercises.getWritingQuestions());
+    }
+  };
+
   return {
     getAll() { return modules; },
     get(id) { return modules[id]; },
@@ -721,6 +952,10 @@ const Modules = (() => {
         { id: 'fundamentos', title: 'Fundamentos', level: 'A1 Review' },
         { id: 'gramatica', title: 'Gramática esencial', level: 'A2 Foundation' },
         { id: 'vocabulario', title: 'Vocabulario funcional', level: 'A2 Foundation' },
+        { id: 'speaking', title: 'Speaking B1', level: 'B1 Target' },
+        { id: 'reading', title: 'Reading B1', level: 'B1 Target' },
+        { id: 'listening', title: 'Listening B1', level: 'B1 Target' },
+        { id: 'writing', title: 'Writing B1', level: 'B1 Target' },
         { id: 'progreso', title: 'Mi Progreso', level: 'General' }
       ];
     }
